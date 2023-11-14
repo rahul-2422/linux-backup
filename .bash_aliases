@@ -1,5 +1,18 @@
-#System Updates
-alias update='sudo nala upgrade -y; sleep 2; sudo snap refresh; sleep 2; flatpak update -y'
+#System aliases
+alias lock='loginctl lock-session'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias aliases='nano ~/.bash_aliases && bash'
+
+alias phone='kdeconnect-app &> /dev/null &'
+
+#System Package manager
+
+alias update='sudo nala upgrade -y; sleep 2; flatpak update -y'
+alias install='sudo nala install'
+alias search='nala search -n'
 
 #System Networking Features
 
@@ -19,54 +32,55 @@ alias wific='nmcli connection show --active'
 alias wifils='nmcli connection show'
 alias wifinf='nmcli connection up id "Night Fury"'
 alias wifipg='nmcli connection up id "IIITS_PGStudents"'
-alias wifist='nmcli connection up id "IIITS_Student"'
+alias wifi-st='nmcli connection up id "IIITS_Student"'
+alias wifi-staff='nmcli connection up id "IIITS_Staff"'
+
+alias stonec='bluetoothctl connect A4:81:77:A7:FF:1E'
+alias stoned='bluetoothctl disconnect A4:81:77:A7:FF:1E'
 
 alias buds='bluetoothctl connect 74:D7:13:18:1D:7D'
-alias budsd='bluetoothctl disconnect'
-alias budsr='bluetoothctl disconnect; sleep 2; bluetoothctl connect 74:D7:13:18:1D:7D'
-
-#Deb and System Apps
-
-alias files='nautilus . >& /dev/null &'
-alias monitor='gnome-system-monitor >& /dev/null &'
-alias notepad='notepadqq >& /dev/null &'
-alias discord='discord >& /dev/null &'
-alias r-studio='rstudio >& /dev/null &'
+alias budsd='bluetoothctl disconnect 74:D7:13:18:1D:7D'
+alias budsr='bluetoothctl disconnect 74:D7:13:18:1D:7D; sleep 2; bluetoothctl connect 74:D7:13:18:1D:7D'
 
 #Frequent Directories and files
 
-alias my-docs='cd ~/Drive-R/Me-Docs'
-alias btp='cd ~/Drive-D/clg/BTP-files'
-alias clg='cd ~/Drive-D/clg'
-alias sdc='cd ~/Downloads/sdc'
-alias examples='cd ~/Drive-D/git-examples'
-alias r-codes='cd ~/Drive-D/clg/7/ida/r-work-directory/ida-r-codes'
-alias timetable='open ~/Pictures/Screenshots/TimeTable.png >& /dev/null &'
+alias my-docs='cd ~/Documents/Me-Docs'
+alias btp='cd ~/clg/BTP-files'
+alias clg='cd ~/clg'
+alias sdc='cd ~/Documents/SDC-documents'
+alias r-codes='cd ~/clg/Sem-7/ida/r-work-directory/ida-r-codes'
+alias timetable='open ~/Pictures/TimeTable.png >& /dev/null &'
+
+#Deb and System Apps
+
+alias files='dolphin . >& /dev/null &'
+alias monitor='plasma-systemmonitor >& /dev/null &'
+alias notepad='kwrite >& /dev/null &'
+alias calculator='gnome-calculator >& /dev/null &'
+
+alias discord='discord >& /dev/null &'
+alias r-studio='rstudio >& /dev/null &'
+alias spotify='spotify >& /dev/null &'
 
 #Flatpak Apps
 
 alias timer='flatpak run com.github.vikdevelop.timer >& /dev/null &'
-alias spotify='flatpak run com.spotify.Client >& /dev/null &'
+#alias spotify='flatpak run com.spotify.Client >& /dev/null &'
 alias telegram='flatpak run org.telegram.desktop >& /dev/null &'
-
-#Miscellaneous
-
-alias chat='irssi -c chat.freenode.net -n night-fury'
-
-alias phone='scrcpy -w --push-target=/sdcard/Scrcpy --window-title="Night Fury" --power-off-on-close &> /dev/null &'
 
 #Web-Apps startup aliases
 
 #brave
 alias brave='/opt/brave.com/brave/brave-browser >& /dev/null &'
-alias incognito='/opt/brave.com/brave/brave-browser --incognito'
+alias incognito='/opt/brave.com/brave/brave-browser --incognito >& /dev/null &'
 
 #yocket
 alias yocket='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=anmfafpacpnoaapbflkakhcklbhmfiko &> /dev/null &'
 
-#mail and messages
+#productivity
 alias mail='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm >& /dev/null &'
 alias messages='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hpfldicfbfomlpcikngkocigghgafkph >& /dev/null &'
+alias tasks='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lajndlaljpfaanonibpcaiakhjmjbaih >& /dev/null &'
 
 #social
 alias snapchat='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb >& /dev/null &'
@@ -83,6 +97,8 @@ alias mangareader='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profil
 #productivity
 alias keep='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eilembjdkfgodjkcjnpgpaenohkicgjd >& /dev/null &'
 alias medium='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hhfiljfkackbfbokpmngfpjffnlmjljd >& /dev/null &'
+alias docs='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mpnpojknpmmopombnjdcgaaiekajbnjb >& /dev/null &'
+alias sheets='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fhihpiojkbmbpdjeoajapmgkhlnakfjf >& /dev/null &'
 
 alias github='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mjoklplbddabcmpepnokjaffbmgbkkgg >& /dev/null &'
 
@@ -95,9 +111,5 @@ alias forefront='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-
 #typing trainers
 alias keybr='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pcklphganfmjgkefaemldhkgjhicbied >& /dev/null &'
 alias monkeytype='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna >& /dev/null &'
-alias typing='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=iilmbpfjemcfdofmchhfmbdijpmnedaj >& /dev/null &'
-
-
-
-
+alias typing='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eackldhhcebhekccmchaaiibklikhdpk >& /dev/null &'
 
