@@ -7,11 +7,11 @@ Switch to Next Keyboard Layout=
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
-Activate Next Tab=Ctrl+]; Ctrl+PgDown
-Activate Previous Tab=Ctrl+[; Ctrl+PgUp
+Activate Next Tab=Ctrl+PgDown; Ctrl+]
+Activate Previous Tab=Ctrl+PgUp; Ctrl+[
 ActualSize=
 AddBookmark=Ctrl+B
-Back=Alt+Left; Back
+Back=Back; Alt+Left
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -100,7 +100,7 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=
-display=Meta+P; Display
+display=Display; Meta+P
 
 [khotkeys][Global Shortcuts]
 {9360faf6-43eb-40b3-b424-b17e437bd780}=Ctrl+Alt+T
@@ -111,7 +111,7 @@ decrease_microphone_volume=Microphone Volume Down
 decrease_volume=Volume Down
 increase_microphone_volume=Microphone Volume Up
 increase_volume=Volume Up
-mic_mute=Microphone Mute; Meta+Volume Mute
+mic_mute=Meta+Volume Mute; Microphone Mute
 mute=Volume Mute
 
 [knotes][Global Shortcuts]
@@ -122,7 +122,7 @@ show_all_notes=Alt+Shift+S
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=
-Lock Session=Meta+Esc; Screensaver
+Lock Session=Screensaver; Meta+Esc
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=
 Reboot Without Confirmation=
@@ -130,9 +130,9 @@ Reboot Without Confirmation=
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=Ctrl+Alt+A
 Decrease Opacity=
-Expose=Ctrl+F9; Alt+Tab
-ExposeAll=Ctrl+F10; Ctrl+8; Launch (C)
-ExposeClass=Ctrl+Alt+Esc; Ctrl+F7; Ctrl+7
+Expose=Alt+Tab; Ctrl+F9
+ExposeAll=Ctrl+8; Launch (C); Ctrl+F10
+ExposeClass=Ctrl+Alt+Esc; Ctrl+7; Ctrl+F7
 Increase Opacity=
 Invert Screen Colors=
 KWin Script: Sticky Window Snapping: enable/disable=Meta+Shift+S
@@ -147,7 +147,7 @@ MoveZoomRight=
 MoveZoomUp=
 Setup Window Shortcut=
 Show Desktop=Meta+D
-ShowDesktopGrid=Meta+Tab; Meta+A
+ShowDesktopGrid=Meta+A; Meta+Tab
 Suspend Compositing=Alt+Shift+F12
 Switch One Desktop Down=Meta+Ctrl+Down
 Switch One Desktop Up=Meta+Ctrl+Up
@@ -335,7 +335,7 @@ mediavolumeup=
 nextmedia=Media Next
 pausemedia=
 playmedia=
-playpausemedia=
+playpausemedia=Media Play
 previousmedia=Media Previous
 stopmedia=
 
@@ -366,7 +366,7 @@ Increase Keyboard Brightness=Keyboard Brightness Up
 Increase Screen Brightness=Monitor Brightness Up
 PowerDown=Power Down
 PowerOff=Power Off
-Sleep=Meta+L; Sleep
+Sleep=Sleep; Meta+L
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=
 
