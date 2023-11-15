@@ -7,11 +7,11 @@ Switch to Next Keyboard Layout=
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
-Activate Next Tab=Ctrl+PgDown; Ctrl+]
-Activate Previous Tab=Ctrl+PgUp; Ctrl+[
+Activate Next Tab=Ctrl+]; Ctrl+PgDown
+Activate Previous Tab=Ctrl+[; Ctrl+PgUp
 ActualSize=
 AddBookmark=Ctrl+B
-Back=Back; Alt+Left
+Back=Alt+Left; Back
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -20,8 +20,8 @@ Close=Ctrl+W; Ctrl+Esc
 ConfigureNotifications=
 ConfigureToolbars=
 Copy=Ctrl+Ins; Ctrl+C
-CreateFolder=F10; Ctrl+Shift+N
-Cut=Shift+Del; Ctrl+X
+CreateFolder=Ctrl+Shift+N; F10
+Cut=Ctrl+X; Shift+Del
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -38,14 +38,14 @@ FindPrev=Shift+F3
 FitToHeight=
 FitToPage=
 FitToWidth=
-Forward=Alt+Right; Forward
+Forward=Forward; Alt+Right
 ForwardWord=Ctrl+Right
 FullScreen=Ctrl+Shift+F
 Goto=
 GotoLine=Ctrl+G
 GotoPage=
 Help=F1
-Home=Alt+Home; Home Page
+Home=Home Page; Alt+Home
 KeyBindings=Ctrl+Alt+,
 Mail=
 MoveToTrash=Del
@@ -54,7 +54,7 @@ Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
 OpenRecent=
-Paste=Shift+Ins; Ctrl+V
+Paste=Ctrl+V; Shift+Ins
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -74,7 +74,7 @@ Save=Ctrl+S
 SaveAs=Ctrl+Shift+S
 SaveOptions=
 SelectAll=Ctrl+A
-ShowHideHiddenFiles=Ctrl+H; Alt+.
+ShowHideHiddenFiles=Alt+.; Ctrl+H
 ShowMenubar=Ctrl+M
 ShowStatusbar=
 ShowToolbar=
@@ -87,7 +87,7 @@ Undo=Ctrl+Z
 Up=Alt+Up
 WhatsThis=Shift+F1
 Zoom=
-ZoomIn=Ctrl+=; Ctrl++
+ZoomIn=Ctrl++; Ctrl+=
 ZoomOut=Ctrl+-
 
 [kaccess][Global Shortcuts]
@@ -100,7 +100,7 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=
-display=Display; Meta+P
+display=Meta+P; Display
 
 [khotkeys][Global Shortcuts]
 {9360faf6-43eb-40b3-b424-b17e437bd780}=Ctrl+Alt+T
@@ -122,7 +122,7 @@ show_all_notes=Alt+Shift+S
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=
-Lock Session=Screensaver; Meta+Esc
+Lock Session=Meta+Esc; Screensaver
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=
 Reboot Without Confirmation=
@@ -131,8 +131,8 @@ Reboot Without Confirmation=
 Activate Window Demanding Attention=Ctrl+Alt+A
 Decrease Opacity=
 Expose=Alt+Tab; Ctrl+F9
-ExposeAll=Ctrl+8; Launch (C); Ctrl+F10
-ExposeClass=Ctrl+Alt+Esc; Ctrl+7; Ctrl+F7
+ExposeAll=Ctrl+8; Ctrl+F10; Launch (C)
+ExposeClass=Ctrl+7; Ctrl+Alt+Esc; Ctrl+F7
 Increase Opacity=
 Invert Screen Colors=
 KWin Script: Sticky Window Snapping: enable/disable=Meta+Shift+S
@@ -147,7 +147,7 @@ MoveZoomRight=
 MoveZoomUp=
 Setup Window Shortcut=
 Show Desktop=Meta+D
-ShowDesktopGrid=Meta+A; Meta+Tab
+ShowDesktopGrid=Meta+Tab; Meta+A
 Suspend Compositing=Alt+Shift+F12
 Switch One Desktop Down=Meta+Ctrl+Down
 Switch One Desktop Up=Meta+Ctrl+Up
@@ -344,13 +344,13 @@ _launch=Meta+E
 
 [org.kde.krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Meta+Q; Search; Alt+F2
+_launch=Search; Meta+Q; Alt+F2
 
 [org.kde.plasma.emojier.desktop][Global Shortcuts]
 _launch=Meta+.
 
 [org.kde.spectacle.desktop][Global Shortcuts]
-ActiveWindowScreenShot=
+ActiveWindowScreenShot=Ctrl+Print
 CurrentMonitorScreenShot=
 FullScreenScreenShot=Shift+Print
 OpenWithoutScreenshot=
@@ -366,7 +366,7 @@ Increase Keyboard Brightness=Keyboard Brightness Up
 Increase Screen Brightness=Monitor Brightness Up
 PowerDown=Power Down
 PowerOff=Power Off
-Sleep=Sleep; Meta+L
+Sleep=Meta+L; Sleep
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=
 
@@ -400,7 +400,7 @@ switch to previous activity=
 toggle do not disturb=
 
 [systemsettings.desktop][Global Shortcuts]
-_launch=Tools; Meta+I
+_launch=Meta+I; Tools
 kcm-kscreen=
 kcm-lookandfeel=
 kcm-users=
