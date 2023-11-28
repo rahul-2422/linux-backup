@@ -1,12 +1,28 @@
 #System aliases
 alias lock='loginctl lock-session'
 
+alias l1='ls -1'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 
 alias aliases='nano ~/.bash_aliases && bash'
 
 alias phone='kdeconnect-app &> /dev/null & disown'
+
+#Function Scripts
+
+function bgrun() {
+	"$@" &> /dev/null & disown
+}
+
+#Function Aliases
+
+alias bg='bgrun'
+
+#Python runner Alias
+
+alias py='python3'
 
 #System Package manager
 
@@ -38,9 +54,9 @@ alias wifi-staff='nmcli connection up id "IIITS_Staff"'
 alias stonec='bluetoothctl connect A4:81:77:A7:FF:1E'
 alias stoned='bluetoothctl disconnect A4:81:77:A7:FF:1E'
 
-alias buds='bluetoothctl connect 74:D7:13:18:1D:7D'
-alias budsd='bluetoothctl disconnect 74:D7:13:18:1D:7D'
-alias budsr='bluetoothctl disconnect 74:D7:13:18:1D:7D; sleep 2; bluetoothctl connect 74:D7:13:18:1D:7D'
+alias pods='bluetoothctl connect 74:D7:13:18:1D:7D'
+alias podsd='bluetoothctl disconnect 74:D7:13:18:1D:7D'
+alias podsr='bluetoothctl disconnect 74:D7:13:18:1D:7D; sleep 2; bluetoothctl connect 74:D7:13:18:1D:7D'
 
 #Frequent Directories and files
 
