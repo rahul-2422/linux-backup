@@ -96,9 +96,6 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-#Key Bindings :
-#xmodmap ~/.Xmodmap
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -119,18 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/home/rahul/.local/lib/python3.10/site-packages"
-
-
 #To Enable ctrl+backspace in terminal
 stty werase \^H
 
+#Path Variables
+export PATH="$HOME/.local/bin:$PATH"
 
-
-#self function delete in case of any discrepancy
-private() {
-    nohup brave-browser --incognito &
-    nohup protonvpn &
-}
+#alias for touchegg functioning
+alias qdbus='qdbus-qt5'
