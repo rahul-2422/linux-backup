@@ -6,6 +6,10 @@ alias l1='ls -1'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias mv='mv -v'
+alias cp='cp -rv'
+alias rm='rm -Iv'
+
 alias aliases='nano ~/.bash_aliases && bash'
 
 alias phone='kdeconnect-app &> /dev/null & disown'
@@ -14,6 +18,14 @@ alias phone='kdeconnect-app &> /dev/null & disown'
 
 function bgrun() {
 	"$@" &> /dev/null & disown
+}
+
+function sem() {
+	cd ~/clg/Sem-"$1"
+}
+
+function count() {
+	l1 "$@" | wc -l
 }
 
 #Function Aliases
@@ -124,6 +136,7 @@ alias poe='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-direct
 alias chatpdf='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=njjkbemknbnbclmeofbfocleneggdedh >& /dev/null & disown'
 alias chatgpt='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=jckaldkomadaenmmgladeopgmfbahfjm >& /dev/null & disown'
 alias forefront='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ljpmdjicnimmogcbnnlgemfkocmpcikp >& /dev/null & disown'
+alias bard='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nohacooabmgpjcdeajcfjgkpfibiffjf >& /dev/null & disown'
 
 #typing trainers
 alias keybr='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pcklphganfmjgkefaemldhkgjhicbied >& /dev/null & disown'
