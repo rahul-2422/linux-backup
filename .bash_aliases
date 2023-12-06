@@ -28,9 +28,9 @@ function count() {
 	l1 "$@" | wc -l
 }
 
-#Function Aliases
-
-alias bg='bgrun'
+function title() {
+	echo -ne "\033]30;"$@"\007"
+}
 
 #Python runner Alias
 
