@@ -2,19 +2,26 @@
 alias lock='loginctl lock-session'
 
 alias l1='ls -1'
+alias sizeof='ls -lh'
 
 alias ..='cd ..'
 alias ...='cd ../..'
 
 alias mv='mv -v'
 alias cp='cp -rv'
-alias rm='rm -Iv'
+alias rm='rm -Irv'
+
+#alias zip='zip -r'
 
 alias aliases='nano ~/.bash_aliases && bash'
 
 alias phone='kdeconnect-app &> /dev/null & disown'
 
 #Function Scripts
+
+function push() {
+	git add .; git commit -m "$@"; git push origin;
+}
 
 function bgrun() {
 	"$@" &> /dev/null & disown
@@ -26,6 +33,10 @@ function sem() {
 
 function count() {
 	l1 "$@" | wc -l
+}
+
+function lt() {
+	tree -h -L "$1"
 }
 
 function title() {
@@ -63,6 +74,10 @@ alias wifipg='nmcli connection up id "IIITS_PGStudents"'
 alias wifist='nmcli connection up id "IIITS_Student"'
 alias wifi-staff='nmcli connection up id "IIITS_Staff"'
 
+#Bluetooth networking and control
+
+alias battery='bluetoothctl info | grep -A1 "Battery Percentage:"'
+
 alias stonec='bluetoothctl connect A4:81:77:A7:FF:1E'
 alias stoned='bluetoothctl disconnect A4:81:77:A7:FF:1E'
 
@@ -76,6 +91,8 @@ alias medocs='cd ~/Documents/Me-Docs'
 alias btp='cd ~/clg/BTP-files'
 alias clg='cd ~/clg'
 alias sdc='cd ~/Documents/SDC-documents'
+alias trash='cd ~/Downloads/trash'
+
 alias r-codes='cd ~/clg/Sem-7/ida/r-work-directory/ida-r-codes'
 
 alias timetable='open ~/Pictures/TimeTable.png >& /dev/null & disown'
