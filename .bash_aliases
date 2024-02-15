@@ -17,7 +17,13 @@ alias aliases='nano ~/.bash_aliases && bash'
 
 alias phone='kdeconnect-app &> /dev/null & disown'
 
+alias phnscr='scrcpy -SK &> /dev/null & disown'
+
 #Function Scripts
+
+function wifi-connect() {
+	nmcli dev wifi connect "$1" password "$2"
+}
 
 function push() {
 	git add .; git commit -m "$@"; git push origin;
@@ -40,7 +46,7 @@ function lt() {
 }
 
 function title() {
-	echo -ne "\033]30;"$@"\007"
+	echo -ne "\033]30;"$@"\007"; clear;
 }
 
 #Python runner Alias
@@ -66,17 +72,27 @@ alias vpn-kill='nmcli connection delete pvpn-ipv6leak-protection'        #VPN-ki
 
 alias wifi-off='nmcli radio wifi off'
 alias wifi-on='nmcli radio wifi on'
+alias wifi-list='nmcli dev wifi list'
 
 alias wific='nmcli connection show --active'
 alias wifils='nmcli connection show'
+
 alias wifinf='nmcli connection up id "Night Fury"'
 alias wifipg='nmcli connection up id "IIITS_PGStudents"'
 alias wifist='nmcli connection up id "IIITS_Student"'
 alias wifi-staff='nmcli connection up id "IIITS_Staff"'
+alias wifim5='nmcli connection up id "Manadi"'
+alias wifim2='nmcli connection up id "manadi"'
+
+alias wifipg-c='nmcli dev wifi connect "IIITS_PGStudents" password "pg@st$ii1ts"'
+alias wifist-c='nmcli dev wifi connect "IIITS_Student" password "iiit5@2k18"'
+alias wifi-staff-c='nmcli dev wifi connect "IIITS_Staff" password "5t@ff@iiit5"'
+alias wifim5-c='nmcli dev wifi connect "Manadi" password "iiit5@2k18"'
+alias wifim2-c='nmcli dev wifi connect "manadi" password "iiit5@2k18"'
 
 #Bluetooth networking and control
 
-alias battery='bluetoothctl info | grep -A1 "Battery Percentage:"'
+alias battery='bluetoothctl info | grep -A20 "Alias" | grep -E "Alias|Battery Percentage"'
 
 alias stonec='bluetoothctl connect A4:81:77:A7:FF:1E'
 alias stoned='bluetoothctl disconnect A4:81:77:A7:FF:1E'
@@ -108,6 +124,8 @@ alias discord='discord >& /dev/null & disown'
 alias r-studio='rstudio >& /dev/null & disown'
 alias spotify='spotify >& /dev/null & disown'
 
+alias matlab='cd /usr/local/MATLAB/R2023b/bin && ./matlab >& /dev/null & disown'
+
 #Flatpak Apps
 
 alias timer='flatpak run com.github.vikdevelop.timer >& /dev/null & disown'
@@ -118,22 +136,24 @@ alias telegram='flatpak run org.telegram.desktop >& /dev/null & disown'
 
 #brave
 alias brave='/opt/brave.com/brave/brave-browser >& /dev/null & disown'
-alias incognito='/opt/brave.com/brave/brave-browser --incognito >& /dev/null & disown'
+alias incognito='/opt/brave.com/brave/brave-browser --incognito >& /dev/null & disown; clear;'
 
-#yocket
+#miscellaneous
 alias yocket='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=anmfafpacpnoaapbflkakhcklbhmfiko &> /dev/null & disown'
+alias maps='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mnhkaebcjjhencmpkapnbdaogjamfbcj &> /dev/null & disown'
 
 #productivity
 alias mail='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm >& /dev/null & disown'
 alias messages='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hpfldicfbfomlpcikngkocigghgafkph >& /dev/null & disown'
 alias tasks='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lajndlaljpfaanonibpcaiakhjmjbaih >& /dev/null & disown'
+alias outlook='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga >& /dev/null & disown'
 
 #social
 alias snapchat='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb >& /dev/null & disown'
 alias whatsapp='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm >& /dev/null & disown'
 alias insta='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=akpamiohjfcnimfljfndmaldlcfphjmp >& /dev/null & disown'
-
 alias redit='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lgnggepjiihbfdbedefdhcffnmhcahbm >& /dev/null & disown'
+alias whatsapp2='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser "--profile-directory=Profile 1" --app-id=hnpfjngllnobngcgfapefoaidbinmjnm >& /dev/null & disown'
 
 #streaming
 alias youtube='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=agimnkijcaahngcdmfeangaknmldooml >& /dev/null & disown'
