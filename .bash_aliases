@@ -1,3 +1,9 @@
+#ssh aliases for wn
+alias rahul='ssh raspberrypi@rahul.local'
+alias sudha='ssh rasberrypi@sudha.local'
+alias jayant='ssh raspberrpi@jayant.local'
+
+
 #System aliases
 alias lock='loginctl lock-session'
 
@@ -11,53 +17,98 @@ alias mv='mv -v'
 alias cp='cp -rv'
 alias rm='rm -Irv'
 
-#alias zip='zip -r'
-
-alias aliases='nano ~/.bash_aliases && bash'
+alias aliases='nano ~/.bash_aliases'
 
 alias phone='kdeconnect-app &> /dev/null & disown'
 
 alias phnscr='scrcpy -SK &> /dev/null & disown'
 
+alias nanohelp='nano ~/Public/nano-cheet-sheet.txt'
+
+#KDE-connect aliases and functions
+
+alias kde-dir='cd ~/Downloads/kde-connect'
+
+alias kder='kdeconnect-cli --refresh'
+alias kdels='kdeconnect-cli -l'
+alias send='kdeconnect-cli -n Night-Fury --share'
+alias sendtxt='kdeconnect-cli -n Night-Fury --share-text'
+
 #Function Scripts
 
-function wifi-connect() {
+/() {
+	cd ./$1
+}
+
+wifi-connect() {
 	nmcli dev wifi connect "$1" password "$2"
 }
 
-function push() {
+push() {
 	git add .; git commit -m "$@"; git push origin;
 }
 
-function bgrun() {
+bgrun() {
 	"$@" &> /dev/null & disown
 }
 
-function sem() {
+sem() {
 	cd ~/clg/Sem-"$1"
 }
 
-function count() {
+count() {
 	l1 "$@" | wc -l
 }
 
-function lt() {
-	tree -h -L "$1"
+lt() {
+	if [[ $# -eq 0 ]]
+	then
+		tree -h -L 1
+	else
+		tree -h -L "$1"
+	fi
 }
 
-function title() {
-	echo -ne "\033]30;"$@"\007"; clear;
+connection-kill() {
+	nmcli connection delete $@
 }
 
-#Python runner Alias
+mkcd() {
+	mkdir -p $1 && cd $1
+}
+
+clonecd() {
+    if (($# != 1)); then
+        echo "Invalid number of parameters. Usage: clonecd <REPO_URL>"
+        return 1
+    fi
+    gh repo clone "$@" && cd "$(basename "$@")" && code .
+}
+
+#test() {
+#	echo "number of arguments are $#."
+#}
+
+#Python Aliases and Functions
+
+activate() {
+	source "$1"/bin/activate
+}
 
 alias py='python3'
+alias pip='uv pip'
+alias listp='uv pip list'
+alias installp='uv pip install'
+alias uninstallp='uv pip uninstall'
+alias cr-ev='uv venv && source .venv/bin/activate'
+alias build-req='uv pip freeze > requirements.txt'
 
 #System Package manager
 
 alias update='sudo -S nala upgrade -y; sleep 2; flatpak update -y'
 alias install='sudo nala install'
 alias search='nala search -n'
+alias uninstall='sudo nala remove'
 
 #System Networking Features
 
@@ -77,7 +128,7 @@ alias wifi-list='nmcli dev wifi list'
 alias wific='nmcli connection show --active'
 alias wifils='nmcli connection show'
 
-alias wifinf='nmcli connection up id "Night Fury"'
+alias wifinf='nmcli connection up id "night-fury"'
 alias wifipg='nmcli connection up id "IIITS_PGStudents"'
 alias wifist='nmcli connection up id "IIITS_Student"'
 alias wifi-staff='nmcli connection up id "IIITS_Staff"'
@@ -105,6 +156,7 @@ alias podsr='bluetoothctl disconnect 74:D7:13:18:1D:7D; sleep 2; bluetoothctl co
 
 alias medocs='cd ~/Documents/Me-Docs'
 alias btp='cd ~/clg/BTP-files'
+alias mindscope='cd ~/clg/mindscope'
 alias clg='cd ~/clg'
 alias sdc='cd ~/Documents/SDC-documents'
 alias trash='cd ~/Downloads/trash'
@@ -125,7 +177,7 @@ alias r-studio='rstudio >& /dev/null & disown'
 alias spotify='spotify >& /dev/null & disown'
 
 alias matlab='cd /usr/local/MATLAB/R2023b/bin && ./matlab >& /dev/null & disown'
-
+alias arduino='cd /home/rahul/Downloads/installation-zips/arduino/arduino-ide_2.3.1_Linux_64bit && ./arduino-ide >& /dev/null & disown'
 #Flatpak Apps
 
 alias timer='flatpak run com.github.vikdevelop.timer >& /dev/null & disown'
@@ -135,7 +187,7 @@ alias telegram='flatpak run org.telegram.desktop >& /dev/null & disown'
 #Web-Apps startup aliases
 
 #brave
-alias brave='/opt/brave.com/brave/brave-browser >& /dev/null & disown'
+alias brave='/opt/brave.com/brave/brave-browser --profile-directory=Default >& /dev/null & disown'
 alias incognito='/opt/brave.com/brave/brave-browser --incognito >& /dev/null & disown; clear;'
 
 #miscellaneous
@@ -157,7 +209,7 @@ alias whatsapp2='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser "--profile
 
 #streaming
 alias youtube='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=agimnkijcaahngcdmfeangaknmldooml >& /dev/null & disown'
-alias aniwatch='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=dnnjhahcjgblhnhbdgjlgmeocmdmbkhf >& /dev/null & disown'
+alias aniwatch='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gbcghhelnehjmfhjfiinjbnkdnkigojc >& /dev/null & disown'
 alias mangareader='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mkncjdlcffgkpmbakeljipclhccmfbem >& /dev/null & disown'
 
 #productivity
@@ -165,6 +217,7 @@ alias keep='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-direc
 alias medium='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hhfiljfkackbfbokpmngfpjffnlmjljd >& /dev/null & disown'
 alias docs='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mpnpojknpmmopombnjdcgaaiekajbnjb >& /dev/null & disown'
 alias sheets='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fhihpiojkbmbpdjeoajapmgkhlnakfjf >& /dev/null & disown'
+alias overleaf='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjoaplgcpnmemdaklplebdapjihcoibe >& /dev/null & disown'
 
 alias github='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mjoklplbddabcmpepnokjaffbmgbkkgg >& /dev/null & disown'
 
@@ -174,6 +227,8 @@ alias chatpdf='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-di
 alias chatgpt='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=jckaldkomadaenmmgladeopgmfbahfjm >& /dev/null & disown'
 alias forefront='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ljpmdjicnimmogcbnnlgemfkocmpcikp >& /dev/null & disown'
 alias bard='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nohacooabmgpjcdeajcfjgkpfibiffjf >& /dev/null & disown'
+alias claude='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja >& /dev/null & disown'
+alias perplexity='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pdblnecalpedecgehiadglkhjcbjcfgj >& /dev/null & disown'
 
 #typing trainers
 alias keybr='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pcklphganfmjgkefaemldhkgjhicbied >& /dev/null & disown'
