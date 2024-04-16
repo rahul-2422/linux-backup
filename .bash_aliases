@@ -13,43 +13,8 @@ alias sizeof='ls -lh'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias mv='mv -v'
-alias cp='cp -rv'
-alias rm='rm -Irv'
-
-alias aliases='nano ~/.bash_aliases'
-
-alias phone='kdeconnect-app &> /dev/null & disown'
-
-alias phnscr='scrcpy -SK &> /dev/null & disown'
-
-alias nanohelp='nano ~/Public/nano-cheet-sheet.txt'
-
-#KDE-connect aliases and functions
-
-alias kde-dir='cd ~/Downloads/kde-connect'
-
-alias kder='kdeconnect-cli --refresh'
-alias kdels='kdeconnect-cli -l'
-alias send='kdeconnect-cli -n Night-Fury --share'
-alias sendtxt='kdeconnect-cli -n Night-Fury --share-text'
-
-#Function Scripts
-
 /() {
 	cd ./$1
-}
-
-wifi-connect() {
-	nmcli dev wifi connect "$1" password "$2"
-}
-
-push() {
-	git add .; git commit -m "$@"; git push origin;
-}
-
-bgrun() {
-	"$@" &> /dev/null & disown
 }
 
 sem() {
@@ -69,12 +34,48 @@ lt() {
 	fi
 }
 
-connection-kill() {
-	nmcli connection delete $@
-}
+alias cl='clear'
+alias mv='mv -v'
+alias cp='cp -rv'
+alias rm='rm -Irv'
 
 mkcd() {
 	mkdir -p $1 && cd $1
+}
+
+bgrun() {
+	"$@" &> /dev/null & disown
+}
+
+alias aliases='nano ~/.bash_aliases'
+
+alias nanohelp='nano ~/Public/nano-cheet-sheet.txt'
+
+
+#Phone apps aliases
+alias phone='kdeconnect-app &> /dev/null & disown'
+
+alias phnscr='scrcpy -SK &> /dev/null & disown'
+
+
+#KDE-connect aliases and functions
+alias kde-dir='cd ~/Downloads/kde-connect'
+
+alias kder='kdeconnect-cli --refresh'
+alias kdels='kdeconnect-cli -l'
+alias send='kdeconnect-cli -n Night-Fury --share'
+alias sendtxt='kdeconnect-cli -n Night-Fury --share-text'
+
+
+#Git aliases
+alias gits='git status'
+
+create-repo() {
+	git init -b main; sleep 1; git add .; sleep 1; git commint -m "Initial commit"; sleep 1; gh repo create;
+}
+
+push() {
+	git add .; git commit -m "$@"; git push origin;
 }
 
 clonecd() {
@@ -85,21 +86,22 @@ clonecd() {
     gh repo clone "$@" && cd "$(basename "$@")" && code .
 }
 
-#test() {
-#	echo "number of arguments are $#."
-#}
-
 #Python Aliases and Functions
 
 activate() {
-	source "$1"/bin/activate
+	if [[$# -eq 0]] 
+	then	
+		source .venv/bin/activate
+	else
+		source "$1"/bin/activate
+	fi
 }
 
 alias py='python3'
 alias pip='uv pip'
-alias listp='uv pip list'
-alias installp='uv pip install'
-alias uninstallp='uv pip uninstall'
+alias pipl='uv pip list'
+alias pipi='uv pip install'
+alias pipui='uv pip uninstall'
 alias cr-ev='uv venv && source .venv/bin/activate'
 alias build-req='uv pip freeze > requirements.txt'
 
@@ -140,6 +142,15 @@ alias wifist-c='nmcli dev wifi connect "IIITS_Student" password "iiit5@2k18"'
 alias wifi-staff-c='nmcli dev wifi connect "IIITS_Staff" password "5t@ff@iiit5"'
 alias wifim5-c='nmcli dev wifi connect "Manadi" password "iiit5@2k18"'
 alias wifim2-c='nmcli dev wifi connect "manadi" password "iiit5@2k18"'
+
+wifi-connect() {
+	nmcli dev wifi connect "$1" password "$2"
+}
+
+
+connection-kill() {
+	nmcli connection delete $@
+}
 
 #Bluetooth networking and control
 
