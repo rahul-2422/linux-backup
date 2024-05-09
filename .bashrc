@@ -124,3 +124,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #alias for touchegg functioning
 alias qdbus='qdbus-qt5'
+
+eval "$(thefuck --alias)"

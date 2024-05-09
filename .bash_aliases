@@ -49,7 +49,7 @@ bgrun() {
 
 alias aliases='nano ~/.bash_aliases'
 
-alias nanohelp='nano ~/Public/nano-cheet-sheet.txt'
+alias nanohelp='nano -v ~/Public/nano-cheet-sheet.txt'
 
 
 #Phone apps aliases
@@ -71,7 +71,7 @@ alias sendtxt='kdeconnect-cli -n Night-Fury --share-text'
 alias gits='git status'
 
 create-repo() {
-	git init -b main; sleep 1; git add .; sleep 1; git commint -m "Initial commit"; sleep 1; gh repo create;
+	git init -b main; sleep 1; git add .; sleep 1; git commit -m "Initial commit"; sleep 1; gh repo create;
 }
 
 push() {
@@ -161,7 +161,15 @@ alias stoned='bluetoothctl disconnect A4:81:77:A7:FF:1E'
 
 alias pods='bluetoothctl connect 74:D7:13:18:1D:7D'
 alias podsd='bluetoothctl disconnect 74:D7:13:18:1D:7D'
-alias podsr='bluetoothctl disconnect 74:D7:13:18:1D:7D; sleep 2; bluetoothctl connect 74:D7:13:18:1D:7D'
+alias podsr='bluetoothctl disconnect 74:D7:13:18:1D:7D; sleep 1; bluetoothctl connect 74:D7:13:18:1D:7D'
+
+alias buds='bluetoothctl connect 40:72:18:03:91:55'
+alias budsd='bluetoothctl disconnect 40:72:18:03:91:55'
+alias budsr='bluetoothctl disconnect 40:72:18:03:91:55; sleep 1; bluetoothctl connect 40:72:18:03:91:55'
+
+alias bar='bluetoothctl connect 41:42:BF:F5:DC:C8'
+alias bard='bluetoothctl disconnect 41:42:BF:F5:DC:C8'
+alias barr='bluetoothctl disconnect 41:42:BF:F5:DC:C8; sleep 1; bluetoothctl connect 41:42:BF:F5:DC:C8'
 
 #Frequent Directories and files
 
@@ -210,7 +218,8 @@ alias mail='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-direc
 alias messages='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hpfldicfbfomlpcikngkocigghgafkph >& /dev/null & disown'
 alias tasks='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lajndlaljpfaanonibpcaiakhjmjbaih >& /dev/null & disown'
 alias outlook='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga >& /dev/null & disown'
-
+alias notion='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=bcjkojidffmiomhalhapkpbggeimbjcb >& /dev/null & disown'
+alias notion-caledar='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfjiemlnmgajmgihefeppogphdpjchab >& /dev/null & disown'
 #social
 alias snapchat='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb >& /dev/null & disown'
 alias whatsapp='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm >& /dev/null & disown'
@@ -237,7 +246,7 @@ alias poe='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-direct
 alias chatpdf='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=njjkbemknbnbclmeofbfocleneggdedh >& /dev/null & disown'
 alias chatgpt='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=jckaldkomadaenmmgladeopgmfbahfjm >& /dev/null & disown'
 alias forefront='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ljpmdjicnimmogcbnnlgemfkocmpcikp >& /dev/null & disown'
-alias bard='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nohacooabmgpjcdeajcfjgkpfibiffjf >& /dev/null & disown'
+alias gemini='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nohacooabmgpjcdeajcfjgkpfibiffjf >& /dev/null & disown'
 alias claude='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja >& /dev/null & disown'
 alias perplexity='cd ~/Web-Apps/ && /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pdblnecalpedecgehiadglkhjcbjcfgj >& /dev/null & disown'
 
