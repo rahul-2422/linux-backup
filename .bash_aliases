@@ -1,14 +1,12 @@
-#ssh aliases for wn
-alias rahul='ssh raspberrypi@rahul.local'
-alias sudha='ssh rasberrypi@sudha.local'
-alias jayant='ssh raspberrpi@jayant.local'
-
-
 #System aliases
 alias lock='loginctl lock-session'
 
+alias cd='z'
+alias ls='eza --color=always --tree --level=1 --long --git --no-filesize --icons=never --no-time --no-user --no-permissions'
 alias l1='ls -1'
 alias sizeof='ls -lh'
+
+alias bat='batcat'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -28,9 +26,9 @@ count() {
 lt() {
 	if [[ $# -eq 0 ]]
 	then
-		tree -h -L 1
+		ls --tree --level=1
 	else
-		tree -h -L "$1"
+		ls --tree --level "$1"
 	fi
 }
 
@@ -38,6 +36,7 @@ alias cl='clear'
 alias mv='mv -v'
 alias cp='cp -rv'
 alias rm='rm -Irv'
+alias btctl='bluetoothctl'
 
 mkcd() {
 	mkdir -p $1 && cd $1
