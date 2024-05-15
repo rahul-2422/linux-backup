@@ -1,13 +1,20 @@
 #System aliases
 alias lock='loginctl lock-session'
 
-alias cd='z'
-alias ls='eza --color=always --tree --level=1 --long --git --no-filesize --icons=never --no-time --no-user --no-permissions'
 alias l1='ls -1'
 alias sizeof='ls -lh'
 
+## ls aliases with eza
+alias ls='eza --color=always --tree --level=1 --git --icons=never'
+alias ld='eza -D --color=always --tree --level=1'
+alias lf='eza -f --color=always --tree --level=1 | grep -v /'
+alias lh='eza -d .* --group-directories-first --color=always --tree --level=1'
+alias ll='eza -a --group-directories-first --color=always --tree --level=1'
+
 alias bat='batcat'
 
+## cd aliases
+alias cd='z'
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -46,10 +53,13 @@ bgrun() {
 	"$@" &> /dev/null & disown
 }
 
+alias backup='cp ~/.bash_aliases ~/Public/linux-backup/.bash_aliases; sleep 1; cp ~/.bashrc ~/Public/linux-backup/.bashrc; sleep 1; cp ~/.tmux.conf ~/Public/linux-backup/.tmux.conf; sleep 1; cp ~/.nanorc ~/Public/linux-backup/.nanorc;'
+
 alias aliases='nano ~/.bash_aliases'
 
 alias nanohelp='nano -v ~/Public/nano-cheet-sheet.txt'
 
+alias note='nano ~/.notepad.txt'
 
 #Phone apps aliases
 alias phone='kdeconnect-app &> /dev/null & disown'
@@ -110,6 +120,8 @@ alias update='sudo -S nala upgrade -y; sleep 2; flatpak update -y'
 alias install='sudo nala install'
 alias search='nala search -n'
 alias uninstall='sudo nala remove'
+alias purge='sudo nala purge'
+alias autopurge='sudo nala autopurge'
 
 #System Networking Features
 
@@ -205,7 +217,7 @@ alias telegram='flatpak run org.telegram.desktop >& /dev/null & disown'
 #Web-Apps startup aliases
 
 #brave
-alias brave='/opt/brave.com/brave/brave-browser --profile-directory=Default >& /dev/null & disown'
+alias brave='bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default'
 alias incognito='/opt/brave.com/brave/brave-browser --incognito >& /dev/null & disown; clear;'
 
 #miscellaneous
