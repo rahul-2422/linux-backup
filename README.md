@@ -1,3 +1,5 @@
+Clone this repo into your systems Public folder. 
+
 To use configuration.tar.gz install plasma customization saver widget from plasma widget store.
 
 for the latte doc configuration to work well install the following widgets form plasma widget store:
