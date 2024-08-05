@@ -9,8 +9,29 @@ copy() {
 }
 alias paste='xsel --output --clipboard'
 
+# Function to set external monitor brightness to 0 (minimum)
+set_external_monitor_brightness_min() {
+    # Disable KWin compositor temporarily
+    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setCompositingForceBlastingRemovalPerformance $((`qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface currentCompositingEnabled`))
+    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setCompositingForceBlastingRemovalPerformance 1
+
+    # Set EGL versions
+    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setEGLMajorVersion 2
+    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setEGLMinorVersion 0
+
+    # Decrease brightness to minimum (0)
+    for i in {1..20}
+    do
+        xdotool key XF86MonBrightness_Down
+        sleep 0.1
+    done
+
+    # Re-enable KWin compositor
+    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setCompositingForceBlastingRemovalPerformance $((`qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface currentCompositingEnabled`))
+}
+
 ## ls aliases with eza
-alias ls='eza --color=always --tree --level=1 --git --icons=never'
+alias le='eza --color=always --tree --level=1 --git --icons=never'
 alias ld='eza -D --color=always --tree --level=1'
 alias lf='eza -f --color=always --tree --level=1 | grep -v /'
 alias lh='eza -d .* --group-directories-first --color=always --tree --level=1'
@@ -40,9 +61,9 @@ count() {
 lt() {
 	if [[ $# -eq 0 ]]
 	then
-		ls --tree --level=1
+		le --tree --level=1
 	else
-		ls --tree --level "$1"
+		le --tree --level "$1"
 	fi
 }
 
@@ -56,6 +77,17 @@ mkcd() {
 	mkdir -p $1 && cd $1
 }
 
+rangercd () {
+    tmp="$(mktemp)"
+    ranger --choosedir="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+alias ranger="rangercd"
+
 bgrun() {
 	"$@" &> /dev/null & disown
 }
@@ -67,6 +99,7 @@ alias aliases='nano ~/.bash_aliases'
 alias nanohelp='nano -v ~/Public/nano-cheet-sheet.txt'
 
 alias note='nano ~/.notepad.txt'
+alias cp-note='copy cat ~/.notepad.txt'
 
 #Phone apps aliases
 alias phone='bgrun kdeconnect-app'
@@ -211,9 +244,12 @@ alias telegram='bgrun flatpak run org.telegram.desktop'
 
 #Web-Apps startup aliases
 
+#chrome
+alias meet='cd ~/Web-Apps/ && bgrun /opt/google/chrome/google-chrome --profile-directory=Default --app-id=kjgfgldnnfoeklkmfkjfagphfepbbdan && cd -'
+
 #brave
 alias brave='bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default'
-alias incognito='bgrun /opt/brave.com/brave/brave-browser --incognito; clear;'
+alias incognito='bgrun /opt/brave.com/brave/brave-browser --incognito --profile-directory=Default; clear;'
 
 #miscellaneous
 alias yocket='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=anmfafpacpnoaapbflkakhcklbhmfiko && cd -'
@@ -261,3 +297,5 @@ alias keybr='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profil
 alias monkeytype='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna && cd -'
 alias typing='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eackldhhcebhekccmchaaiibklikhdpk && cd -'
 
+#genshin impact
+alias genshin-map='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=clmnfgjofoklpfoopakeopffeehichim && cd -'
