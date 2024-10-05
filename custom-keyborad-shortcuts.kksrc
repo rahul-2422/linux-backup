@@ -1,19 +1,22 @@
 [ActivityManager][Global Shortcuts]
+switch-to-activity-963fa02f-c812-43a3-98d8-748e811b25b0=
 switch-to-activity-cd70d61f-8024-4a02-b744-805206ff7a93=
+switch-to-activity-cf6952d9-532c-4544-a0fb-6cb4d29b7fb3=
+switch-to-activity-e424c395-7a57-437a-8903-e4c766150efb=
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
-Switch keyboard layout to English (Dvorak)=Meta+Alt+D
-Switch keyboard layout to English (US)=Meta+Alt+Q
-Switch to Next Keyboard Layout=
+Switch keyboard layout to English (Dvorak)=
+Switch keyboard layout to English (US)=
+Switch to Next Keyboard Layout=Meta+Space
 
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
 Activate Next Tab=Ctrl+PgDown; Ctrl+]
-Activate Previous Tab=Ctrl+PgUp; Ctrl+[
+Activate Previous Tab=Ctrl+[; Ctrl+PgUp
 ActualSize=
 AddBookmark=Ctrl+B
-Back=Alt+Left; Back
+Back=Back; Alt+Left
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -21,9 +24,9 @@ Clear=
 Close=Ctrl+Esc; Ctrl+W
 ConfigureNotifications=
 ConfigureToolbars=
-Copy=Ctrl+Ins; Ctrl+C
-CreateFolder=Ctrl+Shift+N; F10
-Cut=Ctrl+X; Shift+Del
+Copy=Ctrl+C; Ctrl+Ins
+CreateFolder=F10; Ctrl+Shift+N
+Cut=Shift+Del; Ctrl+X
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -56,7 +59,7 @@ Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
 OpenRecent=
-Paste=Ctrl+V; Shift+Ins
+Paste=Shift+Ins; Ctrl+V
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -65,7 +68,7 @@ PrintPreview=
 Prior=PgUp
 Quit=Ctrl+Q
 Redo=Ctrl+Shift+Z
-Reload=Refresh; F5
+Reload=F5; Refresh
 RenameFile=F2
 Replace=Ctrl+R
 ReportBug=
@@ -102,10 +105,11 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=
-display=Display; Meta+P
+display=Meta+P; Display
 
 [khotkeys][Global Shortcuts]
 {9360faf6-43eb-40b3-b424-b17e437bd780}=Ctrl+Alt+T
+{a3e553cb-381d-4875-bdaf-07ec114e03df}=Ctrl+Alt+T
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=
 
 [kmix][Global Shortcuts]
@@ -132,9 +136,9 @@ Reboot Without Confirmation=
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=Ctrl+Alt+A
 Decrease Opacity=
-Expose=Alt+F9; Ctrl+F9; Alt+Space
-ExposeAll=Ctrl+F10; Launch (C); Meta+1
-ExposeClass=Ctrl+Alt+Esc; Ctrl+7; Ctrl+F7
+Expose=Ctrl+F9; Alt+Space
+ExposeAll=Meta+1; Launch (C); Ctrl+F10
+ExposeClass=Ctrl+Alt+Esc; Ctrl+F7; Ctrl+7
 Increase Opacity=
 Invert Screen Colors=
 KWin Script: Sticky Window Snapping: enable/disable=
@@ -151,10 +155,10 @@ Setup Window Shortcut=
 Show Desktop=Meta+D
 ShowDesktopGrid=Meta+Tab
 Suspend Compositing=Alt+Shift+F12
-Switch One Desktop Down=Meta+Ctrl+S; Meta+Ctrl+Down
-Switch One Desktop Up=Meta+Ctrl+W; Meta+Ctrl+Up
-Switch One Desktop to the Left=Meta+Ctrl+A; Meta+Ctrl+Left
-Switch One Desktop to the Right=Meta+Ctrl+Right; Meta+Ctrl+D
+Switch One Desktop Down=Meta+Ctrl+O; Meta+Ctrl+S; Meta+Ctrl+Down
+Switch One Desktop Up=Meta+Ctrl+,; Meta+Ctrl+W; Meta+Ctrl+Up
+Switch One Desktop to the Left=Meta+Ctrl+Left; Meta+Ctrl+A
+Switch One Desktop to the Right=Meta+Ctrl+Right; Meta+Ctrl+E; Meta+Ctrl+D
 Switch Window Down=
 Switch Window Left=
 Switch Window Right=
@@ -216,29 +220,29 @@ Window Maximize=Meta+M
 Window Maximize Horizontal=
 Window Maximize Vertical=
 Window Minimize=Meta+PgDown
-Window Move=
+Window Move=Ctrl+Alt+M
 Window Move Center=
 Window No Border=Meta+H
-Window On All Desktops=Meta+X
-Window One Desktop Down=Meta+Shift+Down; Meta+Shift+S
-Window One Desktop Up=Meta+Shift+W; Meta+Shift+Up
-Window One Desktop to the Left=Meta+Shift+A; Meta+Shift+Left
-Window One Desktop to the Right=Meta+Shift+D; Meta+Shift+Right
+Window On All Desktops=Meta+K
+Window One Desktop Down=Meta+Shift+Down; Meta+Shift+O; Meta+Shift+S
+Window One Desktop Up=Meta+Shift+W; Meta+Shift+Up; Meta+<
+Window One Desktop to the Left=Meta+Shift+Left; Meta+Shift+A
+Window One Desktop to the Right=Meta+Shift+E; Meta+Shift+D; Meta+Shift+Right
 Window Operations Menu=Alt+F3
 Window Pack Down=
 Window Pack Left=
 Window Pack Right=
 Window Pack Up=
-Window Quick Tile Bottom=Meta+Down
+Window Quick Tile Bottom=Meta+O; Meta+Down
 Window Quick Tile Bottom Left=
 Window Quick Tile Bottom Right=
-Window Quick Tile Left=Meta+Left
-Window Quick Tile Right=Meta+Right
-Window Quick Tile Top=Meta+Up
+Window Quick Tile Left=Meta+A; Meta+Left
+Window Quick Tile Right=Meta+E; Meta+Right
+Window Quick Tile Top=Meta+Up; Meta+,
 Window Quick Tile Top Left=
 Window Quick Tile Top Right=
 Window Raise=
-Window Resize=
+Window Resize=Ctrl+Alt+R
 Window Shade=Meta+2
 Window Shrink Horizontal=
 Window Shrink Vertical=
@@ -263,9 +267,9 @@ Window to Desktop 7=
 Window to Desktop 8=
 Window to Desktop 9=
 Window to Next Desktop=
-Window to Next Screen=Meta+Ctrl+Shift+Right; Meta+Ctrl+Shift+D
+Window to Next Screen=Meta+Ctrl+Shift+D; Meta+Ctrl+Shift+Right; Meta+Ctrl+Shift+E
 Window to Previous Desktop=
-Window to Previous Screen=Meta+Ctrl+Shift+Left; Meta+Ctrl+Shift+A
+Window to Previous Screen=Meta+Ctrl+Shift+A; Meta+Ctrl+Shift+Left
 Window to Screen 0=
 Window to Screen 1=
 Window to Screen 2=
@@ -345,11 +349,11 @@ previousmedia=Media Previous
 stopmedia=
 
 [org.kde.dolphin.desktop][Global Shortcuts]
-_launch=Meta+E
+_launch=Meta+F
 
 [org.kde.krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Alt+F2; Meta+Q; Search
+_launch=Meta+'; Search; Alt+F2
 
 [org.kde.plasma.emojier.desktop][Global Shortcuts]
 _launch=Meta+.
@@ -393,12 +397,12 @@ cycleNextAction=
 cyclePrevAction=
 edit_clipboard=
 manage activities=
-next activity=
-previous activity=
-repeat_action=Ctrl+Alt+R
+next activity=Alt+ៀ?; Alt+CapsLock
+previous activity=Alt+Shift+CapsLock; Alt+Shift+ៀ?
+repeat_action=
 show dashboard=Ctrl+F12
 show-barcode=
-show-on-mouse-pos=Meta+V
+show-on-mouse-pos=
 stop current activity=
 switch to next activity=
 switch to previous activity=
