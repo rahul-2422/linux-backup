@@ -9,27 +9,7 @@ copy() {
 }
 alias paste='xsel --output --clipboard'
 
-# Function to set external monitor brightness to 0 (minimum)
-set_external_monitor_brightness_min() {
-    # Disable KWin compositor temporarily
-    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setCompositingForceBlastingRemovalPerformance $((`qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface currentCompositingEnabled`))
-    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setCompositingForceBlastingRemovalPerformance 1
-
-    # Set EGL versions
-    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setEGLMajorVersion 2
-    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setEGLMinorVersion 0
-
-    # Decrease brightness to minimum (0)
-    for i in {1..20}
-    do
-        xdotool key XF86MonBrightness_Down
-        sleep 0.1
-    done
-
-    # Re-enable KWin compositor
-    qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface setCompositingForceBlastingRemovalPerformance $((`qdbus org.kde.KWin /Compositor org.kde.KWin.CompositingInterface currentCompositingEnabled`))
-}
-
+alias battery-info='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 ## ls aliases with eza
 alias le='eza --color=always --tree --level=1 --git --icons=never'
 alias ld='eza -D --color=always --tree --level=1'
@@ -87,6 +67,7 @@ rangercd () {
     fi
 }
 alias ranger="rangercd"
+alias ra="ranger"
 
 bgrun() {
 	"$@" &> /dev/null & disown
@@ -106,6 +87,13 @@ alias phone='bgrun kdeconnect-app'
 
 alias phnscr='bgrun scrcpy -SK'
 
+#TimeZone Aliases
+alias in-time='env TZ=Asia/Kolkata date'
+
+convert_to_la_time() {
+    input_time="$1"
+    TZ="America/Los_Angeles" date -d "$(echo "$input_time" | sed 's/,//g')" +"%A, %Y-%m-%d %H:%M:%S %Z"
+}
 
 #KDE-connect aliases and functions
 alias kde-dir='cd ~/Downloads/kde-connect'
@@ -138,25 +126,25 @@ clonecd() {
 #Python Aliases and Functions
 
 activate() {
-	if [[$# -eq 0]] 
-	then	
+	if [ $# -eq 0 ]; then	
 		source .venv/bin/activate
 	else
-		source "$1"/bin/activate
+		source ."$1"/bin/activate
 	fi
 }
 
 alias py='python3'
-alias pip='uv pip'
-alias pipl='uv pip list'
-alias pipi='uv pip install'
-alias pipui='uv pip uninstall'
+alias upip='uv pip'
+alias upipl='uv pip list'
+alias upipi='uv pip install'
+alias upipir='uv pip install -r requirements.txt'
+alias upipui='uv pip uninstall'
 alias cr-ev='uv venv && source .venv/bin/activate'
 alias build-req='uv pip freeze > requirements.txt'
 
 #System Package manager
 
-alias update='sudo -S nala upgrade -y; sleep 2; flatpak update -y'
+alias update='sudo -S nala upgrade -y; sleep 2; brew update; sleep 2; brew upgrade;'
 alias install='sudo nala install'
 alias search='nala search -n'
 alias uninstall='sudo nala remove'
@@ -236,6 +224,7 @@ alias spotify='bgrun spotify'
 
 alias matlab='cd /usr/local/MATLAB/R2023b/bin && bgrun ./matlab'
 alias arduino='cd /home/rahul/Downloads/installation-zips/arduino/arduino-ide_2.3.1_Linux_64bit && bgrun ./arduino-ide'
+
 #Flatpak Apps
 
 alias timer='bgrun flatpak run com.github.vikdevelop.timer'
@@ -258,9 +247,9 @@ alias maps='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile
 #productivity
 alias mail='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmgjjmmmlfnkbppncabfkddbjimcfncm && cd -'
 alias messages='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hpfldicfbfomlpcikngkocigghgafkph && cd -'
-alias tasks='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lajndlaljpfaanonibpcaiakhjmjbaih && cd -'
+alias tasks='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep && cd -'
 alias outlook='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga && cd -'
-alias notion='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=bcjkojidffmiomhalhapkpbggeimbjcb && cd -'
+alias notion='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cnmnfnkedfekfidgojcdmndbcipagogc && cd -'
 alias notion-caledar='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfjiemlnmgajmgihefeppogphdpjchab && cd -'
 #social
 alias snapchat='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb && cd -'
@@ -274,23 +263,26 @@ alias youtube='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --prof
 alias aniwatch='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gbcghhelnehjmfhjfiinjbnkdnkigojc && cd -'
 alias mangareader='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mkncjdlcffgkpmbakeljipclhccmfbem && cd -'
 
-#productivity
+#cld-and-stuff
 alias keep='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eilembjdkfgodjkcjnpgpaenohkicgjd && cd -'
 alias medium='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hhfiljfkackbfbokpmngfpjffnlmjljd && cd -'
 alias docs='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mpnpojknpmmopombnjdcgaaiekajbnjb && cd -'
 alias sheets='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fhihpiojkbmbpdjeoajapmgkhlnakfjf && cd -'
 alias overleaf='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjoaplgcpnmemdaklplebdapjihcoibe && cd -'
 
+alias brightspace='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cljkckhjkffenmligdjbfiaeocbaakkb && cd -'
+
+alias piazza='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pdnniaaccojemlbbehfjjnnapdihliaj && cd -'
 alias github='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mjoklplbddabcmpepnokjaffbmgbkkgg && cd -'
 
 #chatbots
 alias poe='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gabodgbmieebkjkpdlfnnfbjldgadkpg && cd -'
 alias chatpdf='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=njjkbemknbnbclmeofbfocleneggdedh && cd -'
-alias chatgpt='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=jckaldkomadaenmmgladeopgmfbahfjm && cd -'
+alias chatgpt='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cadlkienfkclaiaibeoongdcgmdikeeg && cd -'
 alias forefront='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ljpmdjicnimmogcbnnlgemfkocmpcikp && cd -'
-alias gemini='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nohacooabmgpjcdeajcfjgkpfibiffjf && cd -'
+alias gemini='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gdfaincndogidkdcdkhapmbffkckdkhn && cd -'
 alias claude='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja && cd -'
-alias perplexity='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pdblnecalpedecgehiadglkhjcbjcfgj && cd -'
+alias perplexity='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=acjihkmpdmhbghnhnecfbgaedgbpkdpg && cd -'
 
 #typing trainers
 alias keybr='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pcklphganfmjgkefaemldhkgjhicbied && cd -'

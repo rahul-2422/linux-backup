@@ -194,3 +194,5 @@ eval "$(savvy init bash)"
 
 #!!!!-----------Execute only after everything else-----------!!!!
 #~/tmux-session.sh
+
+. "$HOME/.cargo/env"
