@@ -73,7 +73,7 @@ bgrun() {
 	"$@" &> /dev/null & disown
 }
 
-alias backup='cp ~/.bash_aliases ~/Public/linux-backup/.bash_aliases; sleep 1; cp ~/.bashrc ~/Public/linux-backup/.bashrc; sleep 1; cp ~/.tmux.conf ~/Public/linux-backup/.tmux.conf; sleep 1; cp ~/.nanorc ~/Public/linux-backup/.nanorc;'
+alias backup='cp ~/.bash_aliases ~/Public/linux-backup/.bash_aliases; sleep 1; cp ~/.bashrc ~/Public/linux-backup/.bashrc; sleep 1; cp ~/.tmux.conf ~/Public/linux-backup/.tmux.conf; sleep 1; cp ~/.nano/.nanorc ~/Public/linux-backup/.nanorc;'
 
 alias aliases='nano ~/.bash_aliases'
 
