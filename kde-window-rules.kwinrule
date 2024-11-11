@@ -1,0 +1,33 @@
+[konsole]
+Description=konsole
+activity=00000000-0000-0000-0000-000000000000
+activityrule=3
+desktops=\\0
+desktopsrule=3
+ignoregeometry=true
+ignoregeometryrule=3
+opacityactive=100
+opacityactiverule=2
+opacityinactive=10
+opacityinactiverule=2
+position=3141,878
+positionrule=3
+size=1416,722
+sizerule=3
+types=1
+wmclass=konsole konsole
+wmclasscomplete=true
+wmclassmatch=1
+
+[settings for doddle.xopp]
+Description=settings for doddle.xopp
+activity=00000000-0000-0000-0000-000000000000
+activityrule=3
+clientmachine=localhost
+desktops=b382b051-439f-402d-94ea-dbce04f081ce
+desktopsrule=3
+title=*doddle.xopp - Xournal++
+types=1
+wmclass=xournalpp xournalpp
+wmclasscomplete=true
+wmclassmatch=1

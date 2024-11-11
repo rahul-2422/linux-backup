@@ -82,6 +82,9 @@ alias nanohelp='nano -v ~/Public/nano-cheet-sheet.txt'
 alias note='nano ~/.notepad.txt'
 alias cp-note='copy cat ~/.notepad.txt'
 
+alias todo='bgrun xournalpp ~/doddle.xopp'
+alias doddle='bgrun xournalpp ~/doddle.xopp'
+
 #Phone apps aliases
 alias phone='bgrun kdeconnect-app'
 
@@ -249,7 +252,7 @@ alias mail='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile
 alias messages='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hpfldicfbfomlpcikngkocigghgafkph && cd -'
 alias tasks='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep && cd -'
 alias outlook='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga && cd -'
-alias notion='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cnmnfnkedfekfidgojcdmndbcipagogc && cd -'
+alias notion='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkommfnfmimkpceplljipijnpmmdkngb && cd -'
 alias notion-caledar='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfjiemlnmgajmgihefeppogphdpjchab && cd -'
 #social
 alias snapchat='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb && cd -'
@@ -272,7 +275,7 @@ alias overleaf='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --pro
 
 alias brightspace='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cljkckhjkffenmligdjbfiaeocbaakkb && cd -'
 
-alias piazza='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pdnniaaccojemlbbehfjjnnapdihliaj && cd -'
+alias piazza='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nmiaapodcodgpmidjlhbphjfmnaeckko && cd -'
 alias github='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mjoklplbddabcmpepnokjaffbmgbkkgg && cd -'
 
 #chatbots

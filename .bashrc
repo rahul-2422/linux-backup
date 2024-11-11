@@ -187,8 +187,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init bash)"
 
 #Setting up Savvy-cli ai helper
-export PATH="/home/rahul/.savvy/bin:$PATH"
-eval "$(savvy init bash)"
+#export PATH="/home/rahul/.savvy/bin:$PATH"
+#eval "$(savvy init bash)"
 
 
 
