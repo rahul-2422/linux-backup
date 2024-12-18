@@ -1,4 +1,6 @@
 #System aliases
+alias night-tmux='source tmux-session.sh'
+
 alias lock='loginctl lock-session'
 
 alias l1='ls -1'
@@ -83,7 +85,7 @@ alias note='nano ~/.notepad.txt'
 alias cp-note='copy cat ~/.notepad.txt'
 
 alias todo='bgrun xournalpp ~/doddle.xopp'
-alias doddle='bgrun xournalpp ~/doddle.xopp'
+alias rough='bgrun xournalpp ~/Downloads/trash/rough.xopp'
 
 #Phone apps aliases
 alias phone='bgrun kdeconnect-app'
@@ -115,7 +117,7 @@ create-repo() {
 }
 
 push() {
-	git add .; git commit -m "$@"; git push origin;
+	git add .; git commit -m "$@"; git push origin HEAD;
 }
 
 clonecd() {
@@ -140,6 +142,7 @@ alias py='python3'
 alias upip='uv pip'
 alias upipl='uv pip list'
 alias upipi='uv pip install'
+alias upipi-req='uv pip install ipykernel nbformat pandas numpy matplotlib seaborn plotly scikit-learn'
 alias upipir='uv pip install -r requirements.txt'
 alias upipui='uv pip uninstall'
 alias cr-ev='uv venv && source .venv/bin/activate'
@@ -254,6 +257,8 @@ alias tasks='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profil
 alias outlook='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga && cd -'
 alias notion='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkommfnfmimkpceplljipijnpmmdkngb && cd -'
 alias notion-caledar='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfjiemlnmgajmgihefeppogphdpjchab && cd -'
+alias linkedin='cd ~/Web-Apps/ && bgrun bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ohghonlafcimfigiajnmhdklcbjlbfda && cd -'
+
 #social
 alias snapchat='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb && cd -'
 alias whatsapp='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm && cd -'
@@ -266,7 +271,7 @@ alias youtube='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --prof
 alias aniwatch='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gbcghhelnehjmfhjfiinjbnkdnkigojc && cd -'
 alias mangareader='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mkncjdlcffgkpmbakeljipclhccmfbem && cd -'
 
-#cld-and-stuff
+#clg-and-stuff
 alias keep='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eilembjdkfgodjkcjnpgpaenohkicgjd && cd -'
 alias medium='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hhfiljfkackbfbokpmngfpjffnlmjljd && cd -'
 alias docs='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mpnpojknpmmopombnjdcgaaiekajbnjb && cd -'
