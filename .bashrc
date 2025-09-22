@@ -125,7 +125,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #alias for touchegg functioning
 alias qdbus='qdbus-qt5'
 
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
 
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -191,8 +191,13 @@ eval "$(zoxide init bash)"
 #eval "$(savvy init bash)"
 
 
+#qdbus path
+export PATH=$PATH:/usr/bin
 
 #!!!!-----------Execute only after everything else-----------!!!!
 #~/tmux-session.sh
 
 . "$HOME/.cargo/env"
+
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+

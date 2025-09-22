@@ -108,6 +108,14 @@ alias kdels='kdeconnect-cli -l'
 alias send='kdeconnect-cli -n Night-Fury --share'
 alias sendtxt='kdeconnect-cli -n Night-Fury --share-text'
 
+#docker-container aliases
+docker-build() {
+    docker build -t "$1":"$2" .
+}
+docker-run() {
+    docker run --rm -it -v "$PWD":/work "$1":"$2" bash
+}
+
 
 #Git aliases
 alias gits='git status'
@@ -139,6 +147,7 @@ activate() {
 }
 
 alias py='python3'
+alias py2='/usr/src/Python-2.7.18/python'
 alias upip='uv pip'
 alias upipl='uv pip list'
 alias upipi='uv pip install'
@@ -217,6 +226,11 @@ alias r-codes='cd ~/clg/Sem-7/ida/r-work-directory/ida-r-codes'
 
 alias timetable='open ~/Pictures/TimeTable.png >& /dev/null & disown'
 
+#EC2 SSH Connection
+alias ec2-connect='cd /home/rahul/usc/spring25/551 && ssh -i "551-demo-server.pem" ubuntu@ec2-18-220-217-74.us-east-2.compute.amazonaws.com && cd -'
+alias scp-get='scp -i /home/rahul/usc/spring25/551/551-demo-server.pem ubuntu@18.220.217.74:'
+alias sftp-connect='sftp -i /home/rahul/usc/spring25/551/551-demo-server.pem ubuntu@18.220.217.74'
+
 #Deb and System Apps
 
 alias files='bgrun dolphin .'
@@ -224,12 +238,9 @@ alias monitor='bgrun plasma-systemmonitor'
 alias notepad='bgrun kwrite'
 alias calculator='bgrun gnome-calculator'
 
-alias discord='bgrun discord'
-alias r-studio='bgrun rstudio'
-alias spotify='bgrun spotify'
+alias discord='bgrun discord' alias r-studio='bgrun rstudio' alias spotify='bgrun spotify'
 
-alias matlab='cd /usr/local/MATLAB/R2023b/bin && bgrun ./matlab'
-alias arduino='cd /home/rahul/Downloads/installation-zips/arduino/arduino-ide_2.3.1_Linux_64bit && bgrun ./arduino-ide'
+alias matlab='cd /usr/local/MATLAB/R2023b/bin && bgrun ./matlab' alias arduino='cd /home/rahul/Downloads/installation-zips/arduino/arduino-ide_2.3.1_Linux_64bit && bgrun ./arduino-ide'
 
 #Flatpak Apps
 
@@ -260,7 +271,7 @@ alias notion-caledar='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser
 alias linkedin='cd ~/Web-Apps/ && bgrun bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ohghonlafcimfigiajnmhdklcbjlbfda && cd -'
 
 #social
-alias snapchat='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=abdndmcckigaeepaljhpcngbfdkbiggb && cd -'
+alias snapchat='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfgbgjphjkdhefmnmbhogcpckgpapbag && cd -'
 alias whatsapp='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm && cd -'
 alias insta='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=akpamiohjfcnimfljfndmaldlcfphjmp && cd -'
 alias redit='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lgnggepjiihbfdbedefdhcffnmhcahbm && cd -'
@@ -270,17 +281,21 @@ alias whatsapp2='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser "--p
 alias youtube='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=agimnkijcaahngcdmfeangaknmldooml && cd -'
 alias aniwatch='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gbcghhelnehjmfhjfiinjbnkdnkigojc && cd -'
 alias mangareader='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mkncjdlcffgkpmbakeljipclhccmfbem && cd -'
+alias netflix='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eppojlglocelodeimnohnlnionkobfln && cd -'
 
 #clg-and-stuff
 alias keep='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eilembjdkfgodjkcjnpgpaenohkicgjd && cd -'
 alias medium='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hhfiljfkackbfbokpmngfpjffnlmjljd && cd -'
 alias docs='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mpnpojknpmmopombnjdcgaaiekajbnjb && cd -'
 alias sheets='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fhihpiojkbmbpdjeoajapmgkhlnakfjf && cd -'
+alias slides='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kefjledonklijopmnomlcbpllchaibag && cd -'
 alias overleaf='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjoaplgcpnmemdaklplebdapjihcoibe && cd -'
 
 alias brightspace='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cljkckhjkffenmligdjbfiaeocbaakkb && cd -'
+alias den='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kpdiaaimphdbabibamgldhbdgjmhcdka && cd -'
 
 alias piazza='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=nmiaapodcodgpmidjlhbphjfmnaeckko && cd -'
+
 alias github='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mjoklplbddabcmpepnokjaffbmgbkkgg && cd -'
 
 #chatbots
@@ -288,9 +303,10 @@ alias poe='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-
 alias chatpdf='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=njjkbemknbnbclmeofbfocleneggdedh && cd -'
 alias chatgpt='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cadlkienfkclaiaibeoongdcgmdikeeg && cd -'
 alias forefront='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ljpmdjicnimmogcbnnlgemfkocmpcikp && cd -'
-alias gemini='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gdfaincndogidkdcdkhapmbffkckdkhn && cd -'
+alias gemini='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kmgjpmooafofajbflkcdkffkakkmcmne && cd -'
 alias claude='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja && cd -'
-alias perplexity='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=acjihkmpdmhbghnhnecfbgaedgbpkdpg && cd -'
+alias perplexity='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lnlpinjmddpgbambkfjpbkoigmgcdjjm && cd -'
+ailas notebooklm='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjcmcplpgihbecacndmmbaenpfgimlec && cd -'
 
 #typing trainers
 alias keybr='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pcklphganfmjgkefaemldhkgjhicbied && cd -'
