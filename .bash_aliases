@@ -306,7 +306,7 @@ alias forefront='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --pr
 alias gemini='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kmgjpmooafofajbflkcdkffkakkmcmne && cd -'
 alias claude='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja && cd -'
 alias perplexity='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lnlpinjmddpgbambkfjpbkoigmgcdjjm && cd -'
-ailas notebooklm='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjcmcplpgihbecacndmmbaenpfgimlec && cd -'
+alias notebooklm='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjcmcplpgihbecacndmmbaenpfgimlec && cd -'
 
 #typing trainers
 alias keybr='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pcklphganfmjgkefaemldhkgjhicbied && cd -'
