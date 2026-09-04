@@ -87,6 +87,8 @@ alias cp-note='copy cat ~/.notepad.txt'
 alias todo='bgrun xournalpp ~/doddle.xopp'
 alias rough='bgrun xournalpp ~/Downloads/trash/rough.xopp'
 
+alias opera='bgrun opera'
+
 #Phone apps aliases
 alias phone='bgrun kdeconnect-app'
 
@@ -110,10 +112,10 @@ alias sendtxt='kdeconnect-cli -n Night-Fury --share-text'
 
 #docker-container aliases
 docker-build() {
-    docker build -t "$1":"$2" .
+    docker build -t "${1}:${2}" .
 }
 docker-run() {
-    docker run --rm -it -v "$PWD":/work "$1":"$2" bash
+    docker run --rm -it -v "${PWD}:/work" "${1}:${2}" bash
 }
 
 
@@ -146,6 +148,24 @@ activate() {
 	fi
 }
 
+cr-ev() {
+    if [ -n "$1" ]; then
+        uv venv --python "$1"
+    else
+        uv venv
+    fi
+    if [ -d ".venv" ]; then
+        source .venv/bin/activate
+    fi
+}
+
+rm-env() {
+    if [ -d ".venv" ]; then
+        .venv/bin/pip freeze > requirements.txt
+        rm -rf .venv
+    fi
+}
+
 alias py='python3'
 alias py2='/usr/src/Python-2.7.18/python'
 alias upip='uv pip'
@@ -154,7 +174,6 @@ alias upipi='uv pip install'
 alias upipi-req='uv pip install ipykernel nbformat pandas numpy matplotlib seaborn plotly scikit-learn'
 alias upipir='uv pip install -r requirements.txt'
 alias upipui='uv pip uninstall'
-alias cr-ev='uv venv && source .venv/bin/activate'
 alias build-req='uv pip freeze > requirements.txt'
 
 #System Package manager
@@ -196,6 +215,45 @@ connection-kill() {
 
 #Bluetooth networking and control
 
+reconnect-soudcore() {
+  local mac="F4:2B:7D:5A:97:4E"
+
+  {
+    echo "power on"
+    sleep 1
+
+    echo "agent on"
+    echo "default-agent"
+    sleep 1
+
+    # Remove device (ignore errors if not paired)
+    echo "remove $mac"
+    sleep 2
+
+    # Start scanning
+    echo "scan on"
+    sleep 5   # <-- wait to rediscover device
+
+    # Pair
+    echo "pair $mac"
+    sleep 5   # <-- allow pairing process
+
+    # Trust
+    echo "trust $mac"
+    sleep 2
+
+    # Connect
+    echo "connect $mac"
+    sleep 5   # <-- allow connection to complete
+
+    # Stop scanning
+    echo "scan off"
+    sleep 1
+
+    echo "quit"
+  } | bluetoothctl
+}
+
 alias battery='bluetoothctl info | grep -A20 "Alias" | grep -E "Alias|Battery Percentage"'
 
 alias stonec='bluetoothctl connect A4:81:77:A7:FF:1E'
@@ -213,6 +271,7 @@ alias bar='bluetoothctl connect 41:42:BF:F5:DC:C8'
 alias bard='bluetoothctl disconnect 41:42:BF:F5:DC:C8'
 alias barr='bluetoothctl disconnect 41:42:BF:F5:DC:C8; sleep 1; bluetoothctl connect 41:42:BF:F5:DC:C8'
 
+alias soundcore='bluetoothctl connect F4:2B:7D:5A:97:4E'
 #Frequent Directories and files
 
 alias medocs='cd ~/Documents/Me-Docs'
@@ -268,7 +327,9 @@ alias tasks='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profil
 alias outlook='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkooggnaalmfkidjmlhoelhdllpphaga && cd -'
 alias notion='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=pkommfnfmimkpceplljipijnpmmdkngb && cd -'
 alias notion-caledar='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfjiemlnmgajmgihefeppogphdpjchab && cd -'
-alias linkedin='cd ~/Web-Apps/ && bgrun bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ohghonlafcimfigiajnmhdklcbjlbfda && cd -'
+alias linkedin='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ohghonlafcimfigiajnmhdklcbjlbfda && cd -'
+alias drive='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=aghbiahbpaijignceidepookljebhfak && cd -'
+alias google='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=okkolgldfknecfjnhhglfopimelbaceh && cd -'
 
 #social
 alias snapchat='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gfgbgjphjkdhefmnmbhogcpckgpapbag && cd -'
@@ -282,6 +343,7 @@ alias youtube='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --prof
 alias aniwatch='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gbcghhelnehjmfhjfiinjbnkdnkigojc && cd -'
 alias mangareader='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=mkncjdlcffgkpmbakeljipclhccmfbem && cd -'
 alias netflix='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eppojlglocelodeimnohnlnionkobfln && cd -'
+alias crunchyroll='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hjlhbeffadgkonmpnblkfmhckmocohah && cd -'
 
 #clg-and-stuff
 alias keep='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=eilembjdkfgodjkcjnpgpaenohkicgjd && cd -'
@@ -301,10 +363,10 @@ alias github='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profi
 #chatbots
 alias poe='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gabodgbmieebkjkpdlfnnfbjldgadkpg && cd -'
 alias chatpdf='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=njjkbemknbnbclmeofbfocleneggdedh && cd -'
-alias chatgpt='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cadlkienfkclaiaibeoongdcgmdikeeg && cd -'
+alias chatgpt-app='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=cadlkienfkclaiaibeoongdcgmdikeeg && cd -'
 alias forefront='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=ljpmdjicnimmogcbnnlgemfkocmpcikp && cd -'
 alias gemini='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=kmgjpmooafofajbflkcdkffkakkmcmne && cd -'
-alias claude='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja && cd -'
+alias claude-app='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=fmpnliohjhemenmnlpbfagaolkdacoja && cd -'
 alias perplexity='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=lnlpinjmddpgbambkfjpbkoigmgcdjjm && cd -'
 alias notebooklm='cd ~/Web-Apps/ && bgrun /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=gjcmcplpgihbecacndmmbaenpfgimlec && cd -'
 
